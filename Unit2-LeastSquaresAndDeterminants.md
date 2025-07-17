@@ -18,7 +18,7 @@
 
 $q_i^Tq_j=0$ 其中 $i\ne j$。
 
->**注意：**正交向量的长度可以不为 1（标准正交要求向量长度为 1）。
+>**注意：** 正交向量的长度可以不为 1（标准正交要求向量长度为 1）。
 
 任何向量都与**零向量**正交。
 
@@ -54,22 +54,11 @@ $q_i^Tq_j=0$ 其中 $i\ne j$。
 >
 > 例如：
 >
-> $$A=\begin{bmatrix}
-> 1 & 2 & 5 \\
-> 2 & 4 & 10
-> \end{bmatrix}$$
+> $A=\begin{bmatrix}  1 & 2 & 5 \\ 2 & 4 & 10 \end{bmatrix}$
 >
-> 其行空间维度为 1，基为 $$\begin{bmatrix}
-> 1 \\
-> 2 \\
-> 5
-> \end{bmatrix}$$；
+> 其行空间维度为 1，基为 $\begin{bmatrix} 1 \\ 2 \\ 5 \end{bmatrix}$；
 >
-> 其零空间维度为 2，可以看作是一个穿过原点的平面垂直于向量 $$\begin{bmatrix}
-> 1 \\
-> 2 \\
-> 5
-> \end{bmatrix}$$。
+>其零空间维度为 2，可以看作是一个穿过原点的平面垂直于向量 $\begin{bmatrix} 1 \\ 2 \\ 5 \end{bmatrix}$。
 
 我们发现，一个矩阵行空间与零空间的维度相加即是整个空间的维度，因此我们称行空间与零空间是 $\mathbb{R}^n$ 中的**正交补（Orthogonal Complements）**。例如，上面的例子中，$A$ 的维度是 3（$A$ 输入一个 3 维的列向量，并输出为 2 维列向量），行空间的维度为 1（即 $rank(A)$），零空间的维度为 2（两个自由变量），它们加起来为 3。
 
@@ -181,7 +170,7 @@ $p=A\hat{x}=A(A^TA)^{-1}A^Tb$
 
 $P=A(A^TA)^{-1}A^T$
 
-**注意：**这个公式无法再进行化简，因为如果 $A$ 不是方阵，则 $(A^TA)^{-1}$ 不等于 $A^{-1}(A^T)^{-1}$。若 $A$ 确实是方阵，那么我们可以得到 $P$ 是单位矩阵。
+**注意：** 这个公式无法再进行化简，因为如果 $A$ 不是方阵，则 $(A^TA)^{-1}$ 不等于 $A^{-1}(A^T)^{-1}$。若 $A$ 确实是方阵，那么我们可以得到 $P$ 是单位矩阵。
 
 
 
@@ -195,7 +184,7 @@ $P=A(A^TA)^{-1}A^T$
 >
 > *The column space of $P$ is spanned by $a$ because for any $b$，$Pb$ lies on the line determined by $a$.*
 
-- 因为投影矩阵的列空间是被向量 $a$ 所填充的，所以 $P$ 的秩为 1。
+- 因为投影矩阵的列空间是被向量 $a$ 所填充的，所以 $P$ 的秩为 $a$ 的维度（被投影矩阵的列空间的维度）。
 
 - 投影矩阵是对称矩阵（$P^T=P$）。
 
@@ -216,6 +205,8 @@ $P=A(A^TA)^{-1}A^T$
 > $P^2b=PPb=Pp$
 >
 > 由于向量 $b$ 的投影向量（即 $p=Pb$ ）已经位于向量 $a$ 所在的直线上了。因此投影向量的再投影仍然是它本身。
+
+
 
 ## 投影的作用：寻找方程 $Ax=b$ 最近似的解
 
@@ -245,18 +236,7 @@ $C+3D=2$
 
 $Ax=b$
 
-$$\begin{bmatrix}
-1 & 1 \\
-1 & 2 \\
-1 & 3
-\end{bmatrix}\begin{bmatrix}
-C \\
-D
-\end{bmatrix}=\begin{bmatrix}
-1 \\
-2 \\
-2
-\end{bmatrix}$$
+$\begin{bmatrix} 1 & 1 \\ 1 & 2 \\ 1 & 3 \end{bmatrix}\begin{bmatrix} C \\ D \end{bmatrix}=\begin{bmatrix} 1 \\ 2 \\ 2 \end{bmatrix}$
 
 
 
@@ -271,18 +251,16 @@ $A^T(A\hat{x}-b)=0$
 进一步化简：$A^TA\hat{x}=A^Tb$。
 
 此时我们可以求解 $\hat{x}$：$\hat{x}=(A^TA)^{-1}A^Tb$
-
+    
 
 
 # 标准正交矩阵（Orthonormal Matrix）
 
-**标准正交（Orthonormal）**要求正交向量的长度均为 1，即满足：
+**标准正交（Orthonormal，或译作正交归一）** 要求正交向量的长度均为 1，即满足：
 
 <img src="assets/image-20250429164758762.png" alt="image-20250429164758762" style="zoom:50%;" />
 
-如果矩阵 $Q$ 的列是由**标准正交向量**构成的，即 $\begin{bmatrix}
-q_1 & \cdots  & q_n
-\end{bmatrix}$ ，那么 $Q^TQ=I$。
+如果矩阵 $Q$ 的列是由**标准正交向量**构成的，即 $\begin{bmatrix} q_1 & \cdots  & q_n \end{bmatrix}$ ，那么 $Q^TQ=I$。
 
 由标准正交向量组成的列的矩阵是一类新的矩阵，称之为**标准正交矩阵**。
 
@@ -303,17 +281,15 @@ q_1 & \cdots  & q_n
 
 
 
+**注意：** 正交矩阵是标准正交矩阵的子集。
+
+
+
 ### 构造正交矩阵
 
 三角函数的正交矩阵：<img src="assets/image-20250429182657205.png" alt="image-20250429182657205" style="zoom:50%;" />
 
-对于非正交矩阵：$\begin{bmatrix}
-1 & 1 \\
-1 & -1
-\end{bmatrix}$，我们可以通过乘以一个系数来使它正交化，即 $\frac{1}{\sqrt{2}}\begin{bmatrix}
-1 & 1 \\
-1 & -1
-\end{bmatrix}$
+对于非正交矩阵：$\begin{bmatrix} 1 & 1 \\ 1 & -1 \end{bmatrix}$，我们可以通过乘以一个系数来使它正交化，即 $\frac{1}{\sqrt{2}}\begin{bmatrix} 1 & 1 \\ 1 & -1 \end{bmatrix}$
 
 
 
@@ -381,49 +357,31 @@ $A$ 与 $B$ 的点积应该为 0，通过将上式左右同时左乘 $A^T$，我
 
 $C=c-\frac{A^Tc}{A^TA}A-\frac{B^Tc}{B^TB}B$
 
+> **正交向量的另一种构造方式： $C=c-P_Qc$**
+>
+> 我们先前了解到的构造方式是使用给定的独立向量（例如 $c$）依次减去我们已经得到的正交的向量（即求出与这些正交的向量垂直的误差向量）。
+>
+> 而另一种方式是，计算这些正交向量为列空间组成的正交矩阵 $Q$ 的**投影矩阵** $P_Q$，那么 $P_Qc$ 就是将独立向量投影到这个正交矩阵的列空间。此时我们只需要使用 $c$ 减去 $c$ 投影到正交矩阵列空间之后的投影向量即可。
+>
+> 注意，这些独立向量 $a,b,c$ 构成的矩阵 $A$ 的投影矩阵 $P_A$ 等于 $P_Q$（因为它们都将向量投影到同一个子空间），因此我们也可以写成：$C=c-P_Ac$。
+
 
 
 ### 示例
 
-假设 $a=\begin{bmatrix}
-1 \\
-1 \\
-1
-\end{bmatrix}$，$b=\begin{bmatrix}
-1 \\
-0 \\
-2
-\end{bmatrix}$
+假设 $a=\begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix}$，$b=\begin{bmatrix} 1 \\ 0 \\ 2 \end{bmatrix}$
 
 设 $A=a$，
 
-$B=b-xA=\begin{bmatrix}
-1 \\
-0 \\
-2
-\end{bmatrix}-\frac{A^Tb}{A^TA}\begin{bmatrix}
-1 \\
-1 \\
-1
-\end{bmatrix}$
+$B=b-xA=\begin{bmatrix} 1 \\ 0 \\ 2 \end{bmatrix}-\frac{A^Tb}{A^TA}\begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix}$
 
 
 
-计算可得：$B=\begin{bmatrix}
-0 \\
--1 \\
-1
-\end{bmatrix}$
+计算可得：$B=\begin{bmatrix} 0 \\ -1 \\ 1 \end{bmatrix}$
 
 经过归一化，我们可以得到：
 
-$Q=\begin{bmatrix}
-q_1 & q_2
-\end{bmatrix}=\begin{bmatrix}
-1/\sqrt{3} & 0 \\
-1/\sqrt{3} & -1/\sqrt{2} \\
-1/\sqrt{3} & 1/\sqrt{2}
-\end{bmatrix}$
+$Q=\begin{bmatrix} q_1 & q_2 \end{bmatrix}=\begin{bmatrix} 1/\sqrt{3} & 0 \\ 1/\sqrt{3} & -1/\sqrt{2} \\ 1/\sqrt{3} & 1/\sqrt{2} \end{bmatrix}$
 
 
 
@@ -439,14 +397,7 @@ $Q$ 是标准正交向量为列的矩阵，而 $R$ 是一个**上三角矩阵**�
 
 $A=QR$
 
-$\begin{bmatrix}
-a_1 & a_2
-\end{bmatrix}=\begin{bmatrix}
-q_1 & q_2
-\end{bmatrix}\begin{bmatrix}
-a_1^Tq_1 & a_2^Tq_1 \\
-a_1^Tq_2 & a_2^Tq_2
-\end{bmatrix}$
+$\begin{bmatrix} a_1 & a_2 \end{bmatrix}=\begin{bmatrix} q_1 & q_2 \end{bmatrix}\begin{bmatrix} a_1^Tq_1 & a_2^Tq_1 \\ a_1^Tq_2 & a_2^Tq_2 \end{bmatrix}$
 
 > **为什么 $R$ 是上三角矩阵？**
 >
@@ -462,10 +413,7 @@ a_1^Tq_2 & a_2^Tq_2
 
 ## 行列式的性质
 
-已知 $\begin{vmatrix}
-a & b \\
-c & d
-\end{vmatrix}=ad-bc$，我们可以得到以下适用于任意形状方阵的属性。
+已知 $\begin{vmatrix} a & b \\ c & d \end{vmatrix}=ad-bc$，我们可以得到以下适用于任意形状方阵的属性。
 
 1. $detI=1$
 
@@ -475,34 +423,13 @@ c & d
 
 2. 线性特征
 
-   (a) 如果矩阵的一行乘以 $t$，则其行列式也乘以 $t$：$\begin{vmatrix}
-   ta & tb \\
-   c & d
-   \end{vmatrix}=t\begin{vmatrix}
-   a & b \\
-   c & d
-   \end{vmatrix}$
+   (a) 如果矩阵的一行乘以 $t$，则其行列式也乘以 $t$：$\begin{vmatrix} ta & tb \\ c & d \end{vmatrix}=t\begin{vmatrix} a & b \\ c & d \end{vmatrix}$
 
-   (b) 行列式的行是线性可加的：$\begin{vmatrix}
-   a+a' & b+b' \\
-   c & d
-   \end{vmatrix}=\begin{vmatrix}
-   a & b \\
-   c & d
-   \end{vmatrix}+\begin{vmatrix}
-   a' & b' \\
-   c & d
-   \end{vmatrix}$
+   (b) 行列式的行是线性可加的：$\begin{vmatrix} a+a' & b+b' \\ c & d \end{vmatrix}=\begin{vmatrix} a & b \\ c & d \end{vmatrix}+\begin{vmatrix} a' & b' \\ c & d \end{vmatrix}$
 
-> 我们可以由属性 1 推导出： $\begin{vmatrix}
-> 1 & 0 \\
-> 0 & 1
-> \end{vmatrix}=1$；由属性 2 推导出：$\begin{vmatrix}
-> 0 & 1 \\
-> 1 & 0
-> \end{vmatrix}=-1$。
+> 我们可以由属性 1 推导出： $\begin{vmatrix} 1 & 0 \\ 0 & 1 \end{vmatrix}=1$；由属性 2 推导出：$\begin{vmatrix} 0 & 1 \\ 1 & 0 \end{vmatrix}=-1$。
 >
-> **引申：**排列矩阵 $P$ 的行列式为 1 还是 -1 取决于 $P$ 交换行的次数是偶数还是奇数。
+> **引申：** 排列矩阵 $P$ 的行列式为 1 还是 -1 取决于 $P$ 交换行的次数是偶数还是奇数。
 
 我们可以根据这三个属性推导出以下属性：
 
@@ -513,42 +440,36 @@ c & d
    证明：
 
    <img src="assets/image-20250511211445030.png" alt="image-20250511211445030" style="zoom:50%;" />
+   
 
 6. 如果存在全 0 行，则其行列式为 0。（由属性 3(a) 可得，令 $t=0$）。
 
 7. 上三角矩阵的行列式是对角线的乘积。
 
-   > 由属性 5 可得我们可以对上三角矩阵运用消除法使其变成**对角线矩阵**。
+> 由属性 5 可得我们可以对上三角矩阵运用消除法使其变成**对角线矩阵**。
    >
-   > 而由属性 3(a) 我们可以知道对角线矩阵的行列式等于对角线的乘积乘以单位矩阵。
+> 而由属性 3(a) 我们可以知道对角线矩阵的行列式等于对角线的乘积乘以单位矩阵。
    >
-   > 最后结合属性 1，我们可以证明此属性。
+> 最后结合属性 1，我们可以证明此属性。
 
 8. 当矩阵是奇异矩阵（存在线性相关的行/列）时行列式为 0。
 
 9. $detAB=(detA)(detB)$
 
-   > 我们可以由此属性推导出逆矩阵的行列式：$detA^{-1}=\frac{1}{detA}$
+> 我们可以由此属性推导出逆矩阵的行列式：$detA^{-1}=\frac{1}{detA}$
    >
-   > 因为 $A^{-1}A=1$ （若 $A$ 是奇异矩阵，则 $A^{-1}$ 不存在，且其行列式是未定义的）。
+> 因为 $A^{-1}A=1$ （若 $A$ 是奇异矩阵，则 $A^{-1}$ 不存在，且其行列式是未定义的）。
    >
-   > 同时，我们也可以推导出：$A^2=(detA)^2$ 以及 $det2A=2^ndetA$ （因为行列式每一行乘以的常数都可以提取出来，一共有 $n$ 行，因此每一行的常数都提取出来，可以写成乘以 $n$ 次）。
+> 同时，我们也可以推导出：$A^2=(detA)^2$ 以及 $det2A=2^ndetA$ （因为行列式每一行乘以的常数都可以提取出来，一共有 $n$ 行，因此每一行的常数都提取出来，可以写成乘以 $n$ 次）。
 
 10. $detA^T=detA$
 
-    $\begin{vmatrix}
-    a & b \\
-    c & d
-    \end{vmatrix}=\begin{vmatrix}
-    a & c \\
-    b & d
-    \end{vmatrix}=ad-bc$
+    $\begin{vmatrix} a & b \\ c & d \end{vmatrix}=\begin{vmatrix} a & c \\ b & d \end{vmatrix}=ad-bc$
 
     > 由此属性，我们可以将第 2、3、4、5、6 属性涉及**行**的描述应用于**列**上。
     >
     > 为了证明此属性，我们可以使用消除法做分解：$A=LU$，则 $|U^TL^T|=|U^T||L^T|$。又因为矩阵 $L$ 是下三角矩阵，其对角线全为 1，通过属性 5 进行消除后可得 $|L|=|L^T|=1$，同理 $|U|=|U^T|$。
 
-    
 
 ## 行列式的公式推导
 
@@ -610,15 +531,7 @@ c & d
 
 为了计算其行列式，我们可以从第一行运用代数余子式公式。
 
-$detA_4=1\cdot \begin{vmatrix}
-1 & 1 & 0 \\
-1 & 1 & 1 \\
-0 & 1 & 1
-\end{vmatrix}-1\cdot \begin{vmatrix}
-1 & 1 & 0 \\
-0 & 1 & 1 \\
-0 & 1 & 1
-\end{vmatrix}$
+$detA_4=1\cdot \begin{vmatrix} 1 & 1 & 0 \\ 1 & 1 & 1 \\ 0 & 1 & 1 \end{vmatrix}-1\cdot \begin{vmatrix} 1 & 1 & 0 \\ 0 & 1 & 1 \\ 0 & 1 & 1 \end{vmatrix}$
 
 对于第一项我们可以使用萨律法（Sarrus Rule）计算，而对于第二项，可以从第一列使用代数余子式公式更快的得到结果：
 
@@ -661,11 +574,7 @@ $x=\frac{1}{detA}C^Tb$
 
 展开 $C^Tb$ 可得：
 
-$\begin{bmatrix}
-C_{11}b_1+\cdots +C_{n1}b_n \\
-\vdots  \\
-C_{1n}b_1+\cdots +C_{nn}b_n
-\end{bmatrix}$
+$\begin{bmatrix} C_{11}b_1+\cdots +C_{n1}b_n \\ \vdots  \\ C_{1n}b_1+\cdots +C_{nn}b_n \end{bmatrix}$
 
 
 
@@ -699,11 +608,11 @@ $x_j=\frac{detB_j}{detA}$
 
 2. 由行列式属性 3(b) 可得：行列式的某一行（构成图形一个边的向量）是线性可加的，即我们可以通过计算两个图形的体积（面积），并求它们的和来得到最终图形的体积（面积）。
 
-   <img src="assets/image-20250521151813431.png" alt="image-20250521151813431" style="zoom:50%;" />
+![[assets/image-20250521151813431.png]]
 
    也可以通过几何的方式得到证明：
 
-   <img src="assets/image-20250521151910542.png" alt="image-20250521151910542" style="zoom:50%;" />
+![[assets/image-20250521151910542.png]]
 
 
 
